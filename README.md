@@ -2,6 +2,7 @@
 Aplikacja mobilna do kupowania biletów autobusowych
 
 Technologie | Java, SQLite 
+
 Platforma | Android 4.4+ 
 
 Wymagania funkcjonalne:
