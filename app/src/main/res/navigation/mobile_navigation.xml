@@ -34,4 +34,5 @@
         android:name="pl.rikwo.mzkclone.ui.changePin.ChangePinFragment"
         android:label="@string/menu_change_pin"
         tools:layout="@layout/fragment_change_pin" />
+
 </navigation>

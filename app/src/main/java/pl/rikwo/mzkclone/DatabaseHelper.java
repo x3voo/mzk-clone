@@ -22,12 +22,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db){
         String createTable = "CREATE TABLE " + TABLE_NAME + "("+ COL1 +" TEXT, "+ COL2 +" TEXT)";
+
+        //OFFLINE DATA
+        //String createTicketsTable = "CREATE TABLE tickets( _id INTEGER PRIMARY KEY, cancelled INTEGER, cancellation_date TEXT, cancel_possible INTEGER, name TEXT NOT NULL, price INTEGER, type TEXT NOT NULL, dailyCode INTEGER NOT NULL, dateBuy TEXT NOT NULL, dateStart INTEGER, dateEnd INTEGER, hash TEXT, qr TEXT, activationData TEXT, used INTEGER, activationMessage TEXT, messageFields TEXT,explanations TEXT, cemetery_ticket INTEGER, ticket_details_json BLOB);";
+        String createTicketsTable = "CREATE TABLE tickets( _id INTEGER PRIMARY KEY, name TEXT NOT NULL, price INTEGER, type TEXT NOT NULL, dailyCode INTEGER NOT NULL, dateBuy TEXT NOT NULL, dateStart INTEGER, dateEnd INTEGER, qr TEXT, activationData TEXT, used INTEGER, ticket_details_json BLOB);";
+        //db.execSQL(createTicketsTable);
+
+        //(ideally, it should only be stored in the cloud)
+        String createProfileTable = "CREATE TABLE profile(name TEXT NOT NULL, lastName TEXT, telephone INTEGER, email TEXT, pin INTEGER, personalId INTEGER);";
+
         db.execSQL(createTable);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1){
-        db.execSQL("DROP IF TABLE EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
 

@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +17,8 @@ import pl.rikwo.mzkclone.databinding.FragmentBuyTicketBinding;
 public class BuyTicketFragment extends Fragment {
     private FragmentBuyTicketBinding binding;
 
+
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         BuyTicketViewModel buyTicketViewModel =
@@ -25,6 +29,9 @@ public class BuyTicketFragment extends Fragment {
 
         final TextView textView = binding.textBuyTicket;
         buyTicketViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+
+
         return root;
     }
 
