@@ -27,17 +27,22 @@ public class ProfileViewModel extends AndroidViewModel {
 
     private final MutableLiveData<String> mText;
     private final MutableLiveData<String> mName;
+    private final MutableLiveData<String> mLastName;
+    private final MutableLiveData<String> mPersonalId;
+    private final MutableLiveData<String> mTelephone;
 
     private void populateListView() {
         Log.d(TAG, "populateListView: Displaying data in the ListView");
 
         //get the data and append to a list
-        Cursor data = mDatabaseHelper.getData();
+        Cursor data = mDatabaseHelper.getUserData();
         while(data.moveToNext()){
             //get the calue from the database in column 0 and 1
             //then add it to the ArrayList
-            listData.add(data.getString(0));
-            listData.add(data.getString(1));
+            listData.add(data.getString(data.getColumnIndex("name")));
+            listData.add(data.getString(data.getColumnIndex("lastName")));
+            listData.add(data.getString(data.getColumnIndex("personalId")));
+            listData.add(data.getString(data.getColumnIndex("telephone")));
         }
     }
 
@@ -50,7 +55,16 @@ public class ProfileViewModel extends AndroidViewModel {
         mText.setValue(listData.get(0));
 
         mName = new MutableLiveData<>();
-        mName.setValue(listData.get(1));
+        mName.setValue(listData.get(0));
+
+        mLastName = new MutableLiveData<>();
+        mLastName.setValue(listData.get(1));
+
+        mPersonalId = new MutableLiveData<>();
+        mPersonalId.setValue(listData.get(2));
+
+        mTelephone = new MutableLiveData<>();
+        mTelephone.setValue(listData.get(3));
     }
 
     public LiveData<String> getText(String data) {
@@ -59,6 +73,12 @@ public class ProfileViewModel extends AndroidViewModel {
             r = mName;
         } else if(data == "text") {
             r = mText;
+        } else if(data == "lastname") {
+            r = mLastName;
+        } else if(data == "personalid") {
+            r = mPersonalId;
+        } else if(data == "telephone") {
+            r = mTelephone;
         }
         return r;
     }

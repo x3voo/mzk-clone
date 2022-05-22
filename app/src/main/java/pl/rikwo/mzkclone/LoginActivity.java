@@ -20,11 +20,17 @@ public class LoginActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityLoginBinding binding;
 
+    DatabaseHelper mDatabaseHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
+
+        mDatabaseHelper = new DatabaseHelper(this);
+        mDatabaseHelper.getReadableDatabase();
+
         setContentView(binding.getRoot());
 
         //setSupportActionBar(binding.toolbar);

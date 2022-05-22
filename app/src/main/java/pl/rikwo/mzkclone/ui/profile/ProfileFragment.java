@@ -32,13 +32,14 @@ public class ProfileFragment extends Fragment {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textProfile = binding.textProfile;
         final TextView textValueName = binding.textValueName;
         final TextView textValueLastName = binding.textValueLastName;
         final TextView textValuePersonalIDNumber = binding.textValuePersonalIDNumber;
         final TextView textValueTelephoneNumber = binding.textValueTelephoneNumber;
-        profileViewModel.getText("text").observe(getViewLifecycleOwner(), textProfile::setText);
         profileViewModel.getText("name").observe(getViewLifecycleOwner(), textValueName::setText);
+        profileViewModel.getText("lastname").observe(getViewLifecycleOwner(), textValueLastName::setText);
+        profileViewModel.getText("personalid").observe(getViewLifecycleOwner(), textValuePersonalIDNumber::setText);
+        profileViewModel.getText("telephone").observe(getViewLifecycleOwner(), textValueTelephoneNumber::setText);
         return root;
     }
 

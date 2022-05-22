@@ -10,12 +10,18 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import pl.rikwo.mzkclone.databinding.FragmentPinBinding;
 
 public class PinFragment extends Fragment {
 
     private FragmentPinBinding binding;
+
+    EditText pin;
+
+    DatabaseHelper mDatabaseHelper;
 
     @Override
     public View onCreateView(
@@ -24,6 +30,11 @@ public class PinFragment extends Fragment {
     ) {
 
         binding = FragmentPinBinding.inflate(inflater, container, false);
+
+        mDatabaseHelper = new DatabaseHelper(getActivity());
+
+        pin = binding.editTextNumberPassword;
+
         return binding.getRoot();
 
     }
@@ -37,9 +48,13 @@ public class PinFragment extends Fragment {
             public void onClick(View view) {
                 //NavHostFragment.findNavController(PinFragment.this)
                 //        .navigate(R.id.action_RegisterFragment_to_LoginFragment);
-                Intent intent = new Intent(view.getContext(), HomeActivity.class);
-                startActivity(intent);
-                getActivity().finish();
+                if(mDatabaseHelper.login(pin.getText().toString())){
+                    Intent intent = new Intent(view.getContext(), HomeActivity.class);
+                    startActivity(intent);
+                    getActivity().finish();
+                } else {
+                    Toast.makeText(view.getContext(), "Invalid PIN", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

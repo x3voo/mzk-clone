@@ -34,7 +34,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="login_fragment_label">Login Fragment</string>
     <string name="pin_fragment_label">Pin Fragment</string>
-    <string name="next">Next</string>
+    <string name="next">NEXT</string>
     <string name="previous">Previous</string>
 
     <string name="app_name_mzk">Mobile City Card</string>
@@ -53,10 +53,23 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_register">RegisterActivity</string>
 
+    <string name="register_text_welcome">Welcome!</string>
+    <string name="register_text_info1">We are glad that you are joining the group of users of the Koszalin Mobile City Card.</string>
+    <string name="register_text_info2">Our goal is to make the application a great convenience in the everyday life of the residents and visitors of Koszalin.</string>
+
+    <string name="checkDeclare">I declare that I am over 13 years old and I agree to the processing of the personal data by XYZ in the above-mentioned scope for the purpose of purchasing a monthly ticker in accordance with the Regulations. I have read the instruction regarding the right of access to my data and the possibility of correcting it. I am aware that my consent my be revoked at any time *</string>
+    <string name="checkRules">Accept rules</string>
+
+    <string name="buttonRegister">REGISTER</string>
 
     <!-- Strings used for fragments for navigation - REGISTER -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="first_fragment_label">Register info</string>
+    <string name="second_fragment_label">Register form</string>
+
+    <string name="buy_single_regular">Single \nregular</string>
+    <string name="buy_single_discount">Single \ndiscount</string>
+
+    <string name="change_pin_button">Change PIN</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
