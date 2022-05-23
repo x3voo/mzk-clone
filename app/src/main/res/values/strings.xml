@@ -71,6 +71,9 @@
 
     <string name="change_pin_button">Change PIN</string>
 
+    <string name="set_as_used">Set as Used</string>
+    <string name="close">Close</string>
+
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>

@@ -166,9 +166,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "SELECT * FROM " + TABLE_TICKETS;
 
         if(status == "inactive"){
-            query = "SELECT * FROM " + TABLE_TICKETS + " WHERE used = 0 AND activationData IS NOT NULL";
-        }else if(status == "active"){
             query = "SELECT * FROM " + TABLE_TICKETS + " WHERE used = 0 AND activationData IS NULL";
+        }else if(status == "active"){
+            query = "SELECT * FROM " + TABLE_TICKETS + " WHERE used = 0 AND activationData IS NOT NULL";
         }else if(status == "used"){
             query = "SELECT * FROM " + TABLE_TICKETS + " WHERE used = 1";
         }
@@ -180,6 +180,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Log.d(TAG, "Pog");
         }
         return data;
+    }
+
+    public boolean setTicketAsUsed(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(USED, 1);
+
+        long result = db.update(TABLE_TICKETS, contentValues, "_id = ?", new String[]{id});
+
+        if (result == -1){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean activateTicket(String id, String line){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(ACTIVATION_DATA, line);
+
+        long result = db.update(TABLE_TICKETS, contentValues, "_id = ?", new String[]{id});
+
+        if (result == -1){
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public boolean login(String inputPin) {
@@ -205,6 +233,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } else {
             return true;
         }
+    }
+
+    public Cursor getTicket(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_TICKETS + " WHERE _id=" + id;
+        Cursor data = db.rawQuery(query, null);
+        return data;
     }
 
     public Cursor getData(){

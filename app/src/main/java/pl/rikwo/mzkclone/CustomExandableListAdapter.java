@@ -1,6 +1,7 @@
 package pl.rikwo.mzkclone;
 
 import android.content.Context;
+import android.database.DataSetObserver;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ public class CustomExandableListAdapter extends BaseExpandableListAdapter {
         this.ticketCollection = ticketCollection;
         this.groupList = groupList;
     }
+
 
     @Override
     public int getGroupCount() {
@@ -110,6 +112,8 @@ public class CustomExandableListAdapter extends BaseExpandableListAdapter {
          */
         return convertView;
     }
+
+
 
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
