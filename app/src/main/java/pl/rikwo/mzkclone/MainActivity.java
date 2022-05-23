@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toast.makeText(this, Long.toString(System.currentTimeMillis()), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, Long.toString(System.currentTimeMillis()), Toast.LENGTH_SHORT).show();
 
         new Handler().postDelayed(new Runnable() {
             public void run() {

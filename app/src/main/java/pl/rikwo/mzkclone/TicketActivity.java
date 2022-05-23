@@ -149,4 +149,13 @@ public class TicketActivity extends AppCompatActivity {
             return "xx";
         }
     }
+
+    @Override
+    public void onBackPressed(){
+        /* temporary fix to not refreshing */
+        Intent intent = new Intent(this, HomeActivity.class);
+        intent.putExtra("frag", "nav_my_tickets");
+        startActivity(intent);
+        finish();
+    }
 }

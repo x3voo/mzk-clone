@@ -1,6 +1,7 @@
 package pl.rikwo.mzkclone;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -107,5 +108,14 @@ public class EditProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed(){
+        /* temporary fix to not refreshing */
+        Intent intent = new Intent(this, HomeActivity.class);
+        intent.putExtra("frag", "nav_profile");
+        startActivity(intent);
+        finish();
     }
 }

@@ -17,3 +17,11 @@ Narzędzia:
 - Android Studio 2021.1.1 
 - git 2.35.1 
 - SQLite 3.38.1
+
+### Preview
+![](https://raw.githubusercontent.com/x3voo/mzk-clone/main/preview/preview1.jpg)
+![](https://raw.githubusercontent.com/x3voo/mzk-clone/main/preview/preview2.jpg)
+![](https://raw.githubusercontent.com/x3voo/mzk-clone/main/preview/preview3.jpg)
+![](https://raw.githubusercontent.com/x3voo/mzk-clone/main/preview/preview4.jpg)
+![](https://raw.githubusercontent.com/x3voo/mzk-clone/main/preview/preview5.jpg)
+![](https://raw.githubusercontent.com/x3voo/mzk-clone/main/preview/preview6.jpg)
