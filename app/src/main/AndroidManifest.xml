@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MZKClone">
         <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".TicketActivity"
             android:exported="false"
-            android:theme="@style/Theme.MZKClone.NoActionBar"/>
+            android:label="Ticket"
+            android:theme="@style/Theme.MZKClone.NoActionBar" />
         <activity
             android:name=".RegisterActivity"
             android:exported="false"

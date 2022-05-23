@@ -29,15 +29,6 @@ public class HomeActivity extends AppCompatActivity {
 
     DatabaseHelper mDatabaseHelper;
 
-    public void AddData(String newEntry, String newEntry2){
-        boolean insertData = mDatabaseHelper.addData(newEntry, newEntry2);
-
-        if (insertData) {
-            toastMessage("Data Successfully Inserted!");
-        } else {
-            toastMessage("Something went wrong");
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
 
         //DB
         mDatabaseHelper = new DatabaseHelper(this);
-        AddData("COL0-asd","COL1-qwe");
+        //AddData("COL0-asd","COL1-qwe");
 
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

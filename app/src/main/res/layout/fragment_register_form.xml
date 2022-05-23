@@ -43,7 +43,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name *" />
+                android:hint="Name *"
+                android:textAlignment="center" />
 
             <EditText
                 android:id="@+id/surname"
@@ -51,14 +52,17 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Surname *" />
+                android:hint="Suranem *"
+                android:textAlignment="center" />
 
             <EditText
                 android:id="@+id/phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:hint="Telephone number *"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/textViewEmail"
@@ -71,28 +75,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:hint="E-mail address *"
+                android:textAlignment="center" />
 
             <EditText
                 android:id="@+id/emailConfirm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:hint="Confirm e-mail address *"
+                android:textAlignment="center" />
 
             <EditText
                 android:id="@+id/passwordNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="numberPassword" />
+                android:inputType="numberPassword"
+                android:hint="Password *"
+                android:textAlignment="center" />
 
             <EditText
                 android:id="@+id/passwordNumberConfirm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="numberPassword" />
+                android:inputType="numberPassword"
+                android:hint="Confirm password *"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/textViewPersonalDetails"
@@ -105,7 +117,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="number" />
+                android:hint="Personal ID *"
+                android:inputType="number"
+                android:textAlignment="center" />
 
             <CheckBox
                 android:id="@+id/checkBox2"

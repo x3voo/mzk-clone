@@ -71,24 +71,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean addData(String item, String item2){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(COL1, item);
-        contentValues.put(COL2, item2);
-
-        Log.d(TAG, "addData: Adding " + item + " to " + TABLE_NAME);
-
-        long result = db.insert(TABLE_NAME, null, contentValues);
-
-        //if data is inserted incorrectly "db" will return -1
-        if (result == -1){
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     public boolean addTicket(String type){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -238,13 +220,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getTicket(String id){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_TICKETS + " WHERE _id=" + id;
-        Cursor data = db.rawQuery(query, null);
-        return data;
-    }
-
-    public Cursor getData(){
-        SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE_NAME;
         Cursor data = db.rawQuery(query, null);
         return data;
     }

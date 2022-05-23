@@ -68,16 +68,18 @@ public class MyTicketsFragment extends Fragment {
                 String selected = expandableListAdapter.getChild(groupPosition,childPosition).toString();
                 String[] separated = selected.split("/");
                 if(groupPosition == 0){
-                    Toast.makeText(v.getContext(), "Active - id" + separated[0], Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(v.getContext(), "Active - id" + separated[0], Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(v.getContext(), TicketActivity.class);
                     intent.putExtra("id", separated[0]);
                     startActivity(intent);
+                    /* temporary fix to not refreshing */
+                    getActivity().finish();
 
                 }else if(groupPosition == 1){
-                    Toast.makeText(v.getContext(), "Inactive - id" + separated[0], Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(v.getContext(), "Inactive - id" + separated[0], Toast.LENGTH_SHORT).show();
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-                    builder.setTitle("Title");
+                    builder.setTitle("Activate ticket");
 
                     // Set up the input
                     final EditText input = new EditText(v.getContext());
@@ -100,6 +102,10 @@ public class MyTicketsFragment extends Fragment {
                                 ((CustomExandableListAdapter)expandableListAdapter).notifyDataSetChanged();
                                 //expandableListView.invalidateViews();
                                 Toast.makeText(v.getContext(), "Ticket " + separated[0] + " set to " + activationData, Toast.LENGTH_SHORT).show();
+
+                                /* temporary fix to not refreshing */
+                                reload();
+
                             }else{
                                 Toast.makeText(v.getContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
                             }
@@ -117,10 +123,14 @@ public class MyTicketsFragment extends Fragment {
 
 
                 }else if(groupPosition == 2){
-                    Toast.makeText(v.getContext(), "Used - id" + separated[0], Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(v.getContext(), "Used - id" + separated[0], Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(v.getContext(), TicketActivity.class);
                     intent.putExtra("id", separated[0]);
                     startActivity(intent);
+
+                    /* temporary fix to not refreshing */
+                    getActivity().finish();
+
                 }
 
                 return true;
@@ -128,6 +138,15 @@ public class MyTicketsFragment extends Fragment {
         });
 
         return root;
+    }
+
+    public void reload() {
+        Intent intent = getActivity().getIntent();
+        getActivity().overridePendingTransition(0, 0);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        getActivity().finish();
+        getActivity().overridePendingTransition(0, 0);
+        startActivity(intent);
     }
 
     @Override
