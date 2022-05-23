@@ -11,7 +11,8 @@
         android:theme="@style/Theme.MZKClone">
         <activity
             android:name=".EditProfileActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Edit profile"/>
         <activity
             android:name=".TicketActivity"
             android:exported="false"

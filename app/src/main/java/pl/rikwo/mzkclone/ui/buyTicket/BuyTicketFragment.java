@@ -1,5 +1,6 @@
 package pl.rikwo.mzkclone.ui.buyTicket;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import pl.rikwo.mzkclone.DatabaseHelper;
+import pl.rikwo.mzkclone.HomeActivity;
 import pl.rikwo.mzkclone.databinding.FragmentBuyTicketBinding;
 
 public class BuyTicketFragment extends Fragment {
@@ -40,6 +42,11 @@ public class BuyTicketFragment extends Fragment {
             public void onClick(View v) {
                 if(mDatabaseHelper.addTicket("regular")){
                     Toast.makeText(v.getContext(), "Added 1 regular ticket", Toast.LENGTH_SHORT).show();
+                    /* temporary fix to not refreshing */
+                    Intent intent = new Intent(v.getContext(), HomeActivity.class);
+                    intent.putExtra("frag", "nav_buy_ticket");
+                    startActivity(intent);
+                    getActivity().finish();
                 }else{
                     Toast.makeText(v.getContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
                 }
@@ -52,6 +59,11 @@ public class BuyTicketFragment extends Fragment {
             public void onClick(View v) {
                 if(mDatabaseHelper.addTicket("discount")){
                     Toast.makeText(v.getContext(), "Added 1 discount ticket", Toast.LENGTH_SHORT).show();
+                    /* temporary fix to not refreshing */
+                    Intent intent = new Intent(v.getContext(), HomeActivity.class);
+                    intent.putExtra("frag", "nav_buy_ticket");
+                    startActivity(intent);
+                    getActivity().finish();
                 }else{
                     Toast.makeText(v.getContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
                 }

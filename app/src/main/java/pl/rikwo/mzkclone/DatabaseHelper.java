@@ -217,6 +217,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public boolean updateProfile(String tel, String email, String pin, String personalId){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(P_PHONE, tel);
+        contentValues.put(P_EMAIL, email);
+        contentValues.put(P_PIN, pin);
+        contentValues.put(P_PERSONALID, personalId);
+
+        long result = db.update(TABLE_PROFILE, contentValues, null, null);
+
+        if (result == -1){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public Cursor getTicket(String id){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_TICKETS + " WHERE _id=" + id;

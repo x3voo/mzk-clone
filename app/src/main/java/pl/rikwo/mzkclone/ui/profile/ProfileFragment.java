@@ -1,5 +1,6 @@
 package pl.rikwo.mzkclone.ui.profile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import pl.rikwo.mzkclone.DatabaseHelper;
+import pl.rikwo.mzkclone.EditProfileActivity;
+import pl.rikwo.mzkclone.TicketActivity;
 import pl.rikwo.mzkclone.databinding.FragmentProfileBinding;
 
 public class ProfileFragment extends Fragment {
@@ -40,6 +43,19 @@ public class ProfileFragment extends Fragment {
         profileViewModel.getText("lastname").observe(getViewLifecycleOwner(), textValueLastName::setText);
         profileViewModel.getText("personalid").observe(getViewLifecycleOwner(), textValuePersonalIDNumber::setText);
         profileViewModel.getText("telephone").observe(getViewLifecycleOwner(), textValueTelephoneNumber::setText);
+
+        binding.buttonEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), EditProfileActivity.class);
+                startActivity(intent);
+
+                /* temporary fix to not refreshing */
+                getActivity().finish();
+            }
+        });
+
+
         return root;
     }
 

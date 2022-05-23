@@ -56,7 +56,56 @@ public class HomeActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-        /* chuj z tym
+
+
+        /*
+        https://stackoverflow.com/questions/71565073/why-does-navigation-not-work-in-the-navigation-drawer-activity-template-with-ver
+
+        try {
+            String frag = null;
+
+            if(getIntent().getStringExtra("frag") == null || getIntent().getStringExtra("frag") == ""){
+                frag = null;
+            }else {
+                frag = getIntent().getStringExtra("frag");
+
+            }
+
+            if(frag != null){
+                switch(frag){
+                    case "nav_my_tickets":
+                        navController.navigate(R.id.nav_my_tickets);
+                        break;
+                    case "nav_ticket_control":
+                        navController.navigate(R.id.nav_my_tickets);
+                        navController.navigate(R.id.nav_ticket_control);
+                        break;
+                    case "nav_buy_ticket":
+                        navController.navigate(R.id.nav_my_tickets);
+                        navController.navigate(R.id.nav_buy_ticket);
+                        break;
+                    case "nav_profile":
+                        navigationView.setCheckedItem(R.id.nav_buy_ticket);
+                        navController.navigate(R.id.nav_profile);
+                        break;
+                    case "nav_change_pin":
+                        navController.navigate(R.id.nav_my_tickets);
+                        navController.navigate(R.id.nav_change_pin);
+                        break;
+                    default:
+                        navController.navigate(R.id.nav_my_tickets);
+                        break;
+                }
+                getIntent().removeExtra("frag");
+            }
+
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+        */
+
+        /*
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

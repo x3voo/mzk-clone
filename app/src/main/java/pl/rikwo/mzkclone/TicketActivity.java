@@ -26,7 +26,7 @@ public class TicketActivity extends AppCompatActivity {
     String ticketId;
     DatabaseHelper mDatabaseHelper;
 
-    String used = "1";
+    int used = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class TicketActivity extends AppCompatActivity {
                 id.setText(data.getString(data.getColumnIndex("_id")));
                 ticketId = data.getString(data.getColumnIndex("_id"));
 
-                used = data.getString(data.getColumnIndex("used"));
+                used = data.getInt(data.getColumnIndex("used"));
             }
 
             data = mDatabaseHelper.getUserData();
@@ -80,7 +80,7 @@ public class TicketActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        if(used == "0"){
+        if(used == 0){
             ((Button) findViewById(R.id.setAsUsed)).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -89,6 +89,7 @@ public class TicketActivity extends AppCompatActivity {
 
                         /* temporary fix to not refreshing */
                         Intent intent = new Intent(v.getContext(), HomeActivity.class);
+                        intent.putExtra("frag", "nav_my_tickets");
                         startActivity(intent);
                         finish();
 
@@ -128,6 +129,7 @@ public class TicketActivity extends AppCompatActivity {
 
                 /* temporary fix to not refreshing */
                 Intent intent = new Intent(v.getContext(), HomeActivity.class);
+                intent.putExtra("frag", "nav_my_tickets");
                 startActivity(intent);
                 finish();
             }
