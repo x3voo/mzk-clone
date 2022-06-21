@@ -1,7 +1,7 @@
 package pl.rikwo.mzkclone;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.database.DataSetObserver;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class CustomExandableListAdapter extends BaseExpandableListAdapter {
 
@@ -32,7 +33,7 @@ public class CustomExandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return ticketCollection.get(groupList.get(groupPosition)).size();
+        return Objects.requireNonNull(ticketCollection.get(groupList.get(groupPosition))).size();
     }
 
     @Override
@@ -42,7 +43,7 @@ public class CustomExandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return ticketCollection.get(groupList.get(groupPosition)).get(childPosition);
+        return Objects.requireNonNull(ticketCollection.get(groupList.get(groupPosition))).get(childPosition);
     }
 
     @Override
@@ -60,6 +61,7 @@ public class CustomExandableListAdapter extends BaseExpandableListAdapter {
         return true;
     }
 
+    @SuppressLint("InflateParams")
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         String ticketType = groupList.get(groupPosition);
@@ -73,9 +75,10 @@ public class CustomExandableListAdapter extends BaseExpandableListAdapter {
         return convertView;
     }
 
+    @SuppressLint("InflateParams")
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        String ticket = ticketCollection.get(groupList.get(groupPosition)).get(childPosition);
+        String ticket = Objects.requireNonNull(ticketCollection.get(groupList.get(groupPosition))).get(childPosition);
         if(convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.child_item, null);
