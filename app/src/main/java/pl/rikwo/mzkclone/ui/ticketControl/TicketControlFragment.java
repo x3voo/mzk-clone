@@ -7,14 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import pl.rikwo.mzkclone.CustomExandableListAdapter;
+import pl.rikwo.mzkclone.CustomExpandableListAdapter;
 import pl.rikwo.mzkclone.TicketActivity;
 import pl.rikwo.mzkclone.databinding.FragmentTicketControlBinding;
 
@@ -34,7 +32,7 @@ public class TicketControlFragment extends Fragment {
 
 
         expandableListView = binding.ticketsList;
-        expandableListAdapter = new CustomExandableListAdapter(getActivity(), ticketControlViewModel.getGroupList(), ticketControlViewModel.getTicketCollection());
+        expandableListAdapter = new CustomExpandableListAdapter(getActivity(), ticketControlViewModel.getGroupList(), ticketControlViewModel.getTicketCollection());
         expandableListView.setAdapter(expandableListAdapter);
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             int lastExpandedPosition = -1;

@@ -3,29 +3,22 @@ package pl.rikwo.mzkclone.ui.myTickets;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseExpandableListAdapter;
 import android.widget.EditText;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import pl.rikwo.mzkclone.CustomExandableListAdapter;
+import pl.rikwo.mzkclone.CustomExpandableListAdapter;
 import pl.rikwo.mzkclone.DatabaseHelper;
-import pl.rikwo.mzkclone.HomeActivity;
-import pl.rikwo.mzkclone.LoginActivity;
-import pl.rikwo.mzkclone.MainActivity;
 import pl.rikwo.mzkclone.TicketActivity;
 import pl.rikwo.mzkclone.databinding.FragmentMyTicketsBinding;
 
@@ -50,7 +43,7 @@ public class MyTicketsFragment extends Fragment {
         mDatabaseHelper = new DatabaseHelper(getActivity());
 
         expandableListView = binding.ticketsList;
-        expandableListAdapter = new CustomExandableListAdapter(getActivity(), myTicketsViewModel.getGroupList(), myTicketsViewModel.getTicketCollection());
+        expandableListAdapter = new CustomExpandableListAdapter(getActivity(), myTicketsViewModel.getGroupList(), myTicketsViewModel.getTicketCollection());
         expandableListView.setAdapter(expandableListAdapter);
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             int lastExpandedPosition = -1;
@@ -99,7 +92,7 @@ public class MyTicketsFragment extends Fragment {
                             activationData = input.getText().toString();
                             if(mDatabaseHelper.activateTicket(separated[0],activationData)){
                                 //expandableListAdapter.;
-                                ((CustomExandableListAdapter)expandableListAdapter).notifyDataSetChanged();
+                                ((CustomExpandableListAdapter)expandableListAdapter).notifyDataSetChanged();
                                 //expandableListView.invalidateViews();
                                 Toast.makeText(v.getContext(), "Ticket " + separated[0] + " set to " + activationData, Toast.LENGTH_SHORT).show();
 

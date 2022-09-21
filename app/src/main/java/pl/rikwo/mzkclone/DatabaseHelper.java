@@ -7,9 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import org.json.JSONArray;
-
-import java.util.Date;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -28,7 +25,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String P_PERSONALID = "personalId";
 
     private static final String TABLE_TICKETS = "tickets";
-    private static final String _ID = "_id";
     private static final String NAME = "name";
     private static final String PRICE = "price";
     private static final String TYPE = "type";
@@ -39,7 +35,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String QR = "qr";
     private static final String ACTIVATION_DATA = "activationData";
     private static final String USED = "used";
-    private static final String TICKER_DETAILS_JSON = "ticket_details_json";
+
 
     public DatabaseHelper(Context context) {
         super(context, "db", null, 1);
