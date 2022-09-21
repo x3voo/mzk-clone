@@ -13,13 +13,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class CustomExandableListAdapter extends BaseExpandableListAdapter {
+public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
     private List<String> groupList;
     Map<String, List<String>> ticketCollection;
 
-    public CustomExandableListAdapter(Context context, List<String> groupList, Map<String, List<String>> ticketCollection){
+    public CustomExpandableListAdapter(Context context, List<String> groupList, Map<String, List<String>> ticketCollection){
         this.context = context;
         this.ticketCollection = ticketCollection;
         this.groupList = groupList;

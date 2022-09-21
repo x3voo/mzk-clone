@@ -1,13 +1,8 @@
 package pl.rikwo.mzkclone;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.Menu;
-import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
+import android.os.Bundle;
+
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -147,7 +142,5 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    private void toastMessage(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
+
 }
